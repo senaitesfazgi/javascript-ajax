@@ -19,5 +19,20 @@
   .then(data => {
       //Out put data to console fot testing
       console.log(data);
+      //prepare for HTML list
+      const peopleUl = document.createElement("ul");
+      //Let's grap those people
+      const people = data.people;
+      for (const person of people)
+      {
+          //Prepare LI for the person
+        const personLi = document.createElement("LI");
+        //Add some text content(Using text literal to inject our values)
+        personLi.textContent = `${person.name} is currently aboard ${person.craft}.`;
+        // Add this <LI> to Our <UL>
+        peopleUl.appendChild(personLi); 
+      }
+      //Add our UL to the Body element 
+      document.body.appendChild(peopleUl);
   })
    
